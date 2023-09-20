@@ -1,0 +1,66 @@
+.z-start {
+  width: 414px;
+  height: 896px;
+  border-radius: 32px;
+  background: #FAFAFA;
+  position: relative;
+}
+
+.logoimg {
+  width: 102px;
+  height: 102px;
+  margin-top:243px;
+  margin-left:156px;
+  margin-bottom:551px;
+  flex-shrink: 0;
+  position: absolute;
+}
+
+.appname {
+  color: var(--text-primary, #14304A);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.11px;
+  padding-top:368px;
+}
+
+.blsig {
+  display: flex;
+  width: 327px;
+  padding: 19px 32px;
+  border: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  background: #DFF1FF;
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.105px;
+  margin-left: 43px;
+  margin-top: 62px;
+}
+
+.whlog {
+  display: flex;
+  width: 327px;
+  padding: 19px 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 32px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  color: var(--text-primary, #14304A);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.105px;
+  margin-left: 43px;
+  margin-top: 23px;
+  background: #FAFAFA;
+}

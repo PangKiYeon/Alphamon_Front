@@ -1,0 +1,182 @@
+.z-join {
+  width: 414px;
+  height: 896px;
+  border-radius: 32px;
+  background: #FAFAFA;
+  position: relative;
+}
+
+.leftback {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top: 59px;
+    margin-left: 33px;
+}
+
+.jointitle {
+    color: var(--text-primary, #14304A);
+    font-family: Poppins;
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 108px;
+    margin-left: 40px;
+    position: absolute;
+}
+
+/*글씨 색깔 변경*/
+#emailid {
+  width: 300px;
+  height: 55px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  padding-left: 24px;
+  margin-left: 40px;
+  margin-top: 186px;
+  position: absolute;
+}
+
+#password {
+  width: 300px;
+  height: 55px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  padding-left: 20px;
+  margin-top: 262px;
+  margin-left:40px;
+  position: relative;
+}
+
+.lockbtn {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 282.5px;
+  left: 333px;
+}
+
+#nickname {
+  width: 220px;
+  height: 55px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  padding-left: 24px;
+  margin-top: 21px;
+  margin-left: 40px;
+}
+
+.nickbtn {
+  width: 70px;
+  height: 55px;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: #DFF1FF;
+  color: #000;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.084px;
+  margin-left: 5.7px;
+}
+
+#birth {
+  width: 300px;
+  height: 55px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  margin-left: 40px;
+  padding-left: 24px;
+  margin-top: 21px;
+}
+
+/*밑 화살표 방향 옮기기 + 값 화면 바꾸기*/
+#sex {
+  width: 328px;
+  height: 60px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  margin-left: 40px;
+  padding-left: 24px;
+  margin-top: 21px;
+}
+
+#career {
+  width: 328px;
+  height: 60px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-outline, #CFCFCF);
+  background: var(--text-white, #FFF);
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.105px;
+  margin-left: 40px;
+  padding-left: 24px;
+  margin-top: 21px;
+}
+
+input[type=checkbox] {
+  accent-color: blue;
+}
+
+#agreebox {
+  width: 16px;
+  height: 16px;
+}
+
+.writecheck {
+  color: #696F79;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.agreebox {
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.btnsign {
+  width: 328px;
+  padding: 19px 32px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 32px;
+  background: #DFF1FF;
+  border: none;
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.105px;
+  margin-top: 43px;
+  margin-left: 40px;
+}

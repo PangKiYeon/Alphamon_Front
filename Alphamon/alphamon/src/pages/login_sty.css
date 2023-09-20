@@ -1,0 +1,107 @@
+.z-login {
+    width: 414px;
+    height: 896px;
+    border-radius: 32px;
+    background: #FAFAFA;
+    position: relative;
+}
+
+.lftback{
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top: 59px;
+    margin-left: 40px;
+}
+
+.logintitle{
+    color: var(--text-primary, #14304A);
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.11px;
+    margin-top: 62px;
+    margin-left: 174px;
+    position: absolute;
+}
+
+.idtitle{
+    color: var(--text-primary, #14304A);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06px;
+    margin-left: 40px;
+    padding-top: 162px;
+    position: absolute;
+}
+
+#userid{
+    width: 310px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #CFCFCF;
+    outline: none;
+    padding: 8px;
+    background: #FAFAFA;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    position: absolute;
+    margin-top: 192px;
+    margin-left: 40px;
+}
+
+.pswtitle{
+    color: var(--text-primary, #14304A);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06px;
+    margin-left: 40px;
+    padding-top: 269px;
+    position: absolute;
+}
+
+#userpassword{
+    width: 310px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #CFCFCF;
+    outline: none;
+    padding: 8px;
+    background: #FAFAFA;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    margin-top: 299px;
+    margin-left: 40px;
+    position: relative;
+}
+
+.eyebtn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 313px;
+    left: 333px;
+}
+
+.btnlogin {
+    width: 327px;
+    padding: 19px 32px;
+    align-items: center;
+    border-radius: 32px;
+    background: #DFF1FF;
+    border: none;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.105px;
+    margin-top: 70.5px;
+    margin-left: 40px;
+}
