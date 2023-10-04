@@ -6,6 +6,7 @@ import Test from '../src/pages/Test';
 import Start from '../src/pages/start_z'
 import Login from '../src/pages/login_z'
 import Join from '../src/pages/memjoin_z'
+import Cmain from '../src/pages/community/Cmain'
 
 const Router = () => {
   return (
@@ -16,7 +17,7 @@ const Router = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
-        
+        <Route path="/cmain" element={<Cmain />} />
       </Routes>
     </BrowserRouter>
   );
