@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
     const navigate = useNavigate();
     return (
       <div className="z-start">
-        <img className='logoimg' src='images\logo.png'/>
+        <img className='logoimg' src='images/alphalogo.png' alt="logo"/>
         <p className='appname'>Welcome to AlphaMon</p>
         <button className='blsig' onClick={()=>navigate('/join')}>Sign up</button>
         <button className='whlog' onClick={()=>navigate('/login')}>Login</button>

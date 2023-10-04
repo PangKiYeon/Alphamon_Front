@@ -119,7 +119,7 @@ import { useNavigate } from 'react-router-dom';
         .then(responseData => {
           if(responseData.code === 201) {
             alert(responseData.message);
-            navigate('/login'); //로그인 화면 주소
+            navigate('/login');
           }else if (responseData.code === 400) {
             alert(responseData.message);
           }else if (responseData.code === 500) {
@@ -137,7 +137,7 @@ import { useNavigate } from 'react-router-dom';
      return (
       <div className='z-join'>
         
-        <button className='leftback'><AiOutlineLeft /></button>
+        <button className='leftback' onClick={()=>navigate('/')} title='gostart'><AiOutlineLeft /></button>
         <h2 className='jointitle'>Let's sign up!</h2>
 
         <div className='joinform'>
