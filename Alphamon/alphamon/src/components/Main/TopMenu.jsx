@@ -45,8 +45,8 @@ const HomeTag = styled.div`
     height: 38px;
     flex-shrink: 0;
     border-radius: 12px;
-    background: #FFF;
-    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.06);
+    // background: #FFF;
+    // box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.06);
     color: ${props => (props.isSelected ? '#2A64D9' : 'black')};
     display: flex;
     justify-content: center;

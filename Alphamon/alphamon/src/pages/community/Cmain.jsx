@@ -3,17 +3,22 @@ import axios from 'axios';
 import Cheader from '../../components/Community/Cheader';
 import CTop from '../../components/Community/CTop';
 import BottomMenu from '../../components/Main/BottomMenu';
+import Clion from './/Clion';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
+// 게시글 작성 역할만
+// Clist Component로 게시글 보여줌
+
 function Cmain() {
-  const [content, setContent] = useState('');
-  const [userId, setUserId] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [id, setId] = useState(''); 
+  const [tendency, setTendency] = useState(''); 
+  const [nickname, setNickname] = useState(''); 
+  const [content, setContent] = useState(''); 
+  const [createdDatetime, setcreatedDatetTime] = useState(''); 
+  const [viewcount, setViewcount] = useState(0); 
   const navigate = useNavigate();
 
-  // 페이지 로드 시 현재 날짜와 시간 반영
   useEffect(() => {
     const currentDate = new Date();
     const formattedDate = `${currentDate.getFullYear()}-${
@@ -21,24 +26,26 @@ function Cmain() {
     }-${currentDate.getDate()}`;
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
     
-    setDate(formattedDate);
-    setTime(formattedTime);
+    // setDate(formattedDate);
+    // setTime(formattedTime);
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // 서버로 데이터를 보냄
-      await axios.post('/api/post', {
+      // 서버로 데이터를 보내기
+      await axios.post('/api/community/post', {
+        id,
+        tendency,
+        nickname,
         content,
-        userId,
-        date,
-        time,
+        createdDatetime,
+        viewcount,
       });
 
-    //   // 게시글 작성 후 할 작업
-    //   navigate('/post-list');
+      // 게시글 작성 후 할 작업
+      navigate('/post-list');
     } catch (error) {
       console.error('게시글 작성 실패:', error);
     }
@@ -51,43 +58,63 @@ function Cmain() {
         <CTop></CTop>
         <BottomMenu></BottomMenu>
       </Container>
-      <Context>
+      <ContentContainer>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="내용"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="사용자 ID"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="날짜"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="시간"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-          <button type="submit">게시</button>
-        </form>
-      </Context>
+          <Textarea
+                placeholder="의견을 작성하세요"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
+        </form>     
+        <SubmitButton type="submit">
+          <ButtonImage src="icons/send.png" alt="Submit" />
+        </SubmitButton>
+      </ContentContainer>
+      {/* 여기서 tendency 나눠서 해당 tendency Component 불러오는 방식 */}
+      <Clion></Clion>
     </>
   );
 }
 
 const Container = styled.div``;
 
-const Context = styled.div`
-  margin-top: 338px;
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 42px;
+  margin-right: 42px;
 `;
+
+const Textarea = styled.textarea`
+  width: 330px;
+  height: 105px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #F2F3F5;
+  resize: none;
+  font-family: 'Poppins', sans-serif;
+`;
+
+const SubmitButton = styled.button`
+  width: 19px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+  position: relative; 
+`;
+
+const ButtonImage = styled.img`
+
+`;
+
+// const Context = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 329.003px;
+//   height: 125px;
+//   flex-shrink: 0;
+//   margin: 15px 42px;
+// `;
 
 export default Cmain;
