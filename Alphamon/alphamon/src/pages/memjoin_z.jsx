@@ -3,6 +3,9 @@ import './memjoin_sty.css';
 import { useState } from 'react';
 import { AiOutlineLeft, AiFillLock, AiFillUnlock } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import { serverUrl , joinEndpoint } from '../config';
+
+const JoinUrl = serverUrl + joinEndpoint;
 
   function Memjoin() {
 
@@ -101,7 +104,7 @@ import { useNavigate } from 'react-router-dom';
         agreebox.focus();
       }
       else{
-        fetch("http://ec2-3-34-67-41.ap-northeast-2.compute.amazonaws.com:8080/api/user/signup",
+        fetch(JoinUrl,
         {
           method: 'post',
           headers: {
