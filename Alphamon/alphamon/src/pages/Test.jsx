@@ -117,14 +117,24 @@ function App() {
   ])
 
   const hadleCkAnswer = (type,idx) => {
+    console.log('타입', type);
     let ls = testList
+    // for(let i=0; i<ls.length; i++){
+    //   if(ls[i].name===type){
+    //     ls[i].count = ls[i].count + 1;
+    //   }
+    // }
     for(let i=0; i<ls.length; i++){
-      if(ls[i].name===type){
-        ls[i].count = ls[i].count + 1
+      for (let j=0; j<type.length; j++) {
+        if(ls[i].name===type[j]){
+          ls[i].count = ls[i].count + 1;
+        }
       }
+
     }
 
     setTestList(ls)
+    console.log('테스트 리스트', testList);
     setPage(page+1)
 
     if(idx+1 === questionList.length){
@@ -136,47 +146,45 @@ function App() {
 
   function setInfoList(){
 
-    let il = [
-      {
+    let il = {
+      '0': {
         name: '강력한 결단력과 자신감 있는 투자 스킬을 활용하여 고수익을 얻어내는 공격투자형 <사자>',
-        desc: ['공격투자형인 당신!', '주식 시장에서 변동성이 큰 종목에 집중적으로 투자하며', '단기적인 시장 변화를 민감하게 파악하여 투자 결정을 내리기 때문에', '리스크가 크지만 높은 수익을 기대하는 경향을 보이는군요']
+        desc: ['공격투자형인 당신!', '주식 시장에서 변동성이 큰 종목에 집중적으로 투자하며', '단기적인 시장 변화를 민감하게 파악하여', '리스크가 크지만 높은 수익을 기대하는 경향을 보이는군요'],
       },
-      { 
+      '1': {
         name: '높은 수익을 위해 적극적이고 감수성 높은 투자를 하는 적극투자형 <뱀>',
-        desc: ['적극투자형인 당신!', '높은 위험을 감수하고, 단기적인 시장 변화를 잘 파악하여', '주기적으로 매매를 시도하며 주식 시장의 흐름을 적극적으로 활용하는 경향을 보이는군요']
+        desc: ['적극투자형인 당신!', '높은 위험을 감수하고, 단기적인 시장 변화를 잘 파악하여', '주기적으로 매매를 시도하며 주식 시장의 흐름을 적극적으로 활용하는 경향을 보이는군요'],
       },
-      {
+      '2': {
         name: '안정적이고 꾸준한 수익을 추구하는 위험중립형 <원숭이>',
-        desc: ['위험중립형인 당신!', '주식시장에서 높은 위험을 감수하지 않고도 꾸준한 수익을 얻을 수 있는 안정적인 투자를 선호하며', '장기적인 투자를 통해 성장가능성이 높은 기업들에 투자하는 경향을 보이는군요']
+        desc: ['위험중립형인 당신!', '주식시장에서 높은 위험을 감수하지 않고도 꾸준한 수익을 얻을 수 있는 안정적인 투자를 선호하며', '장기적인 투자를 통해 성장가능성이 높은 기업들에 투자하는 경향을 보이는군요'],
       },
-      {
+      '3': {
         name: '예측이 가능하고 저리스크, 저수익의 안전한 수익만을 원하는 안정추구형 <양>',
-        desc: ['안정추구형인 당신!', '안정적인 성과를 추구하기 위해 안정성이 높은 대형주나 안정성이 높은 성장주 등에 투자하는 경향이 있군요', '안정적이면서 조심스러운 투자 성향이 장기적인 투자에서는 꾸준한 수익을 얻기 좋죠']
-      }
-    ]
+        desc: ['안정추구형인 당신!', '안정적인 성과를 추구하기 위해 안정성이 높은 대형주나 안정성이 높은 성장주 등에 투자하는 경향이 있군요', '안정적이면서 조심스러운 투자 성향이 장기적인 투자에서는 꾸준한 수익을 얻기 좋죠'],
+      },
+    };
 
-    // testList 배열에서 각 타입의 선택된 횟수 가져오기
-    const typeCounts = testList.map(data => data.count);
+ 
+        // testList 배열에서 각 타입의 선택된 횟수 가져오기
+        const typeCounts = testList.map(data => data.count);
 
-    // 가장 많이 선택된 횟수 찾기
-    const maxCount = Math.max(...typeCounts);
+        // 가장 많이 선택된 횟수 찾기
+        const maxCount = Math.max(...typeCounts);
+    
+        // 가장 많이 선택된 타입 찾기
+        const mostSelectedType = testList.find(data => data.count === maxCount);
+    
+        // 결과 출력
+        console.log('가장 많이 선택된 타입:', mostSelectedType.name);
+        console.log('선택된 횟수:', maxCount);
+    
+        // 가장 많이 선택된 타입에 대응하는 결과
+        const resultInfo = il[mostSelectedType.name];
+    
+        // 결과 정보 설정
+        setnamedesc(resultInfo);
 
-    // 가장 많이 선택된 타입 찾기
-    const mostSelectedType = testList.find(data => data.count === maxCount);
-
-    // 가장 많이 선택된 타입에 대응하는 결과
-    const resultInfo = il.find(info => info.name.includes(mostSelectedType.name));
-
-    // 결과 출력
-    console.log('가장 많이 선택된 타입:', mostSelectedType.name);
-    console.log('선택된 횟수:', maxCount);
-    console.log('결과 정보:', resultInfo);
-
-    // result 변수
-    let result = resultInfo;
-
-    // setnamedesc(resultInfo);
-    setnamedesc(il.filter(val=>val.result === result)[0])
   }
 
   return (
@@ -192,7 +200,7 @@ function App() {
         :page <= questionList.length?
         <div className='questionLayout'>
          <div className='testTitle'>
-          <div>AlphaMon 주식 성향 테스트</div>
+          <div>주식 성향 테스트</div>
           <div>{`${page} / ${questionList.length}`}</div>
          </div>
          {questionList.map((val,idx)=>
@@ -225,7 +233,7 @@ function App() {
         :
         <div className='questionLayout'>
          <div className='testTitle'>
-          <div>AlphaMon 주식 성향 테스트</div>
+          <div>주식 성향 테스트</div>
           <div onClick={()=>window.location.reload()}>테스트 다시하기</div>
          </div>
 

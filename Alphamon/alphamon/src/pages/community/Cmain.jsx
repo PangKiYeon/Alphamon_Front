@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { serverUrl , communitypostEndpoint } from '../../config';
 import Cheader from '../../components/Community/Cheader';
 import CTop from '../../components/Community/CTop';
 import BottomMenu from '../../components/Main/BottomMenu';
 import Clion from './/Clion';
+import LionBoard from './LionBoard'; 
+import SnakeBoard from './SnakeBoard'; 
+import MonkeyBoard from './MonkeyBoard'; 
+import SheepBoard from './SheepBoard';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,6 +21,7 @@ function Cmain() {
   const [content, setContent] = useState(''); 
   const [createdDatetime, setcreatedDatetTime] = useState(''); 
   const [viewcount, setViewcount] = useState(0); 
+  const [selectedMenu, setSelectedMenu] = useState('공격투자형'); // 기본 메뉴 설정
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,26 +31,46 @@ function Cmain() {
     }-${currentDate.getDate()}`;
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
     
-    // setDate(formattedDate);
-    // setTime(formattedTime);
   }, []);
+
+  const handleMenuSelect = (menu) => {
+    setSelectedMenu(menu);
+  };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // 서버로 데이터를 보내기
-      await axios.post('/api/community/post', {
-        id,
-        tendency,
-        nickname,
-        content,
-        createdDatetime,
-        viewcount,
+      const id = 123; 
+      const tendency = 'Some Tendency';
+      const nickname = 'UserNickname'; 
+      const time = new Date().toISOString();
+      const viewcount = 0;
+
+      // API 요청을 보내기
+      const response = await fetch(`${serverUrl}${communitypostEndpoint}`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json;charset=UTF-8',
+        },
+        body: JSON.stringify({
+          id,
+          tendency,
+          nickname,
+          content,
+          createdDatetime,
+          viewcount,
+        }),
       });
 
-      // 게시글 작성 후 할 작업
-      navigate('/post-list');
+      if (response.ok) {
+        // alert('게시글 작성이 완료되었습니다.');
+        console.log('게시글 작성 성공:', response.status);
+      } else {
+        console.error('게시글 작성 실패:', response.statusText);
+      }
     } catch (error) {
       console.error('게시글 작성 실패:', error);
     }
@@ -55,7 +80,7 @@ function Cmain() {
     <>
       <Container>
         <Cheader></Cheader>
-        <CTop></CTop>
+        <CTop onMenuSelect={handleMenuSelect} /> {/* CTop 컴포넌트에 메뉴 선택 핸들러 전달 */}
         <BottomMenu></BottomMenu>
       </Container>
       <ContentContainer>
@@ -70,8 +95,16 @@ function Cmain() {
           <ButtonImage src="icons/send.png" alt="Submit" />
         </SubmitButton>
       </ContentContainer>
-      {/* 여기서 tendency 나눠서 해당 tendency Component 불러오는 방식 */}
-      <Clion></Clion>
+
+        {/* 선택된 메뉴에 따라 해당 컴포넌트 렌더링 */}
+        {selectedMenu === '공격투자형' && <LionBoard />}
+        {selectedMenu === '적극투자형' && <MonkeyBoard />} 
+        {selectedMenu === '위험중립형' && <SnakeBoard />} 
+        {selectedMenu === '안정추구형' && <SheepBoard />}
+          {/* {selectedMenu === '공격투자형' && <Clion postId={1} />}
+          {selectedMenu === '적극투자형' && <Csnake />}
+          {selectedMenu === '위험중립형' && <Cmonkey />}
+          {selectedMenu === '안정추구형' && <Csheep />} */}
     </>
   );
 }
@@ -85,6 +118,7 @@ const ContentContainer = styled.div`
   margin-left: 42px;
   margin-right: 42px;
 `;
+
 
 const Textarea = styled.textarea`
   width: 330px;
@@ -108,13 +142,5 @@ const ButtonImage = styled.img`
 
 `;
 
-// const Context = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 329.003px;
-//   height: 125px;
-//   flex-shrink: 0;
-//   margin: 15px 42px;
-// `;
 
 export default Cmain;

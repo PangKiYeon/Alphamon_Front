@@ -8,17 +8,21 @@ function BottomMenu() {
     console.log(selectMenu);
 
     const handleMenuClick = (menu) => {
-        setSelectMenu(menu);
+        if (selectMenu === menu) {
+            setSelectMenu('');
+        } else {
+            setSelectMenu(menu);
+        }
     };
-
+    
     return (
-    <>
-        <Container>
+        <>
+            <Container>
                 <HomeMenu
                     src="/icons/HomeMenu.png"
                     alt="홈메뉴"
                     onClick={() => {
-                        setSelectMenu('홈메뉴');
+                        handleMenuClick('홈메뉴');
                         navigate('/Main');
                     }}
                     isSelected={selectMenu === '홈메뉴'}
@@ -26,14 +30,16 @@ function BottomMenu() {
                 <SecondMenu
                     src="/icons/SecondMenu.png"
                     alt="두번째메뉴"
-                    onClick={() => {setSelectMenu('두번째메뉴')}}isSelected={selectMenu === '두번째메뉴'}
+                    onClick={() => {
+                        handleMenuClick('두번째메뉴');
+                    }}
+                    isSelected={selectMenu === '두번째메뉴'}
                 />
                 <CommuMenu
-                    // Main -> Cmain 이동 시 icon 색상도 바로 변경되도록 수정 필요
                     src="/icons/CommuMenu.png"
                     alt="커뮤메뉴"
                     onClick={() => {
-                        setSelectMenu('커뮤메뉴');
+                        handleMenuClick('커뮤메뉴');
                         navigate('/Cmain');
                     }}
                     isSelected={selectMenu === '커뮤메뉴'}
@@ -41,10 +47,14 @@ function BottomMenu() {
                 <MyMenu
                     src="/icons/MyMenu.png"
                     alt="마이메뉴"
-                    onClick={() => {setSelectMenu('마이메뉴')}}isSelected={selectMenu === '마이메뉴'}
+                    onClick={() => {
+                        handleMenuClick('마이메뉴');
+                        navigate('/Mypage');
+                    }}
+                    isSelected={selectMenu === '마이메뉴'}
                 />
-        </Container>
-    </>
+            </Container>
+        </>
     );
 }
 
@@ -54,12 +64,13 @@ const Container = styled.div`
     flex-shrink: 0;
     background: #FFF;
     box-shadow: 0px 2px 48px 0px rgba(0, 0, 0, 0.12);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+    z-index: 999;
 `;
 
 const MenuIcon = styled.img`

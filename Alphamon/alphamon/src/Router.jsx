@@ -7,6 +7,9 @@ import Start from '../src/pages/start_z'
 import Login from '../src/pages/login_z'
 import Join from '../src/pages/memjoin_z'
 import Cmain from '../src/pages/community/Cmain'
+import Post from '../src/pages/community/Post'
+import Mypage from '../src/pages/mypage/mypage'
+
 
 const Router = () => {
   return (
@@ -18,6 +21,8 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path="/cmain" element={<Cmain />} />
+        <Route path="/post/:postId" element={<Post />} /> 
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
   );

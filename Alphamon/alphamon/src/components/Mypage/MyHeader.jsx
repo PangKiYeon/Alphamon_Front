@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Header() {
+function MyHeader() {
     return (
     <>
         <Container>
             <LeftMenu src="/icons/leftMenu.png" alt="왼쪽메뉴"></LeftMenu>
-            <Title>AlphaMon</Title>
+            <Title>마이페이지</Title>
             <Alphamonlogo src="/images/logo.png" alt="로고"></Alphamonlogo>
         </Container>
     </>
@@ -14,8 +14,6 @@ function Header() {
 }
 
 const Container = styled.div`
-    position: fixed;
-    top: 0;
     display: flex;
     align-items: center;
     width: 386px;
@@ -50,4 +48,4 @@ const Alphamonlogo = styled.img`
     margin-right: 14x;
 `;
 
-export default Header;
+export default MyHeader;
