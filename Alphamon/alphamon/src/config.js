@@ -5,6 +5,7 @@ const sendEndpoint = process.env.REACT_APP_ENDPOINT_CHAT_SEND;
 const communitypostEndpoint = process.env.REACT_APP_ENDPOINT_COMMUNITYPOST;
 const communitypostIDEndpoint = process.env.REACT_APP_ENDPOINT_COMMUNITYPOSTID;
 const boardEndpoint = process.env.REACT_APP_ENDPOINT_BOARD
+const commentpostEndpoint = process.env.REACT_APP_ENDPOINT_COMMENTPOST
 
 module.exports = {
   serverUrl,
@@ -14,4 +15,5 @@ module.exports = {
   communitypostEndpoint,
   communitypostIDEndpoint,
   boardEndpoint,
+  commentpostEndpoint,
 };

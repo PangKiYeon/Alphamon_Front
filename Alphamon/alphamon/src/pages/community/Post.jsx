@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { serverUrl, communitypostIDEndpoint } from '../../config';
+import { serverUrl, communitypostIDEndpoint , commentpostEndpoint} from '../../config';
 import Cheader from '../../components/Community/Cheader';
 import BottomMenu from '../../components/Main/BottomMenu';
 import styled from 'styled-components';
@@ -43,11 +43,12 @@ function Post() {
       createdDateTime: new Date().toISOString(),
     };
 
-    // 댓글 목록 업데이트
+    // 댓글 목록
     setComments([...comments, newCommentObj]);
     setNewComment('');
 
-    // 서버에 새 댓글을 저장하는 로직 추가
+    // 서버에 새 댓글을 저장
+    // 게시글 post 구현 후 넘어오기
   };
 
   if (!post) {
