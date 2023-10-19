@@ -36,7 +36,7 @@ function Post() {
 
   const handleCommentSubmit = async () => {
     const newCommentObj = {
-      parentCommentId: comments.length + 1, 
+      parentCommentId: 1, 
       // parentCommentId: null,
       nickname: "testUser", 
       content: newComment,
@@ -47,7 +47,7 @@ function Post() {
     setComments([...comments, newCommentObj]);
     setNewComment('');
 
-    const postUrl = `${serverUrl}/api/community/comment/{postId}`;
+    const postUrl = `${serverUrl}/api/community/comment/${postId}`;
     try {
       const nickname = "testUser";  
       const response = await fetch(postUrl, {
@@ -55,10 +55,8 @@ function Post() {
         headers: {
           'content-type': 'application/json;charset=UTF-8',
         },
-        body: JSON.stringify({
-          newCommentObj,
-          // swagger tendency 수정
-        }),
+        body: JSON.stringify(newCommentObj),
+
       });
       console.log(response);
       if (response.ok) {
