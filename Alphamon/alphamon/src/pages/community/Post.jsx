@@ -38,7 +38,7 @@ function Post() {
     const newCommentObj = {
       parentCommentId: comments.length + 1, 
       // parentCommentId: null,
-      nickname: '사용자', 
+      nickname: "testUser", 
       content: newComment,
       // createdDateTime: new Date().toISOString(),
     };
@@ -60,8 +60,8 @@ function Post() {
           // swagger tendency 수정
         }),
       });
+      console.log(response);
       if (response.ok) {
- 
         console.log('댓글 작성 성공:', response.status);
       } else {
 
