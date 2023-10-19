@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 // import styled, { keyframes } from 'styled-components';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 
 function TopMenu() {
+    const navigate = useNavigate();
     const [selectMenu, setSelectMenu] = useState('홈 화면'); 
     console.log(selectMenu);
 
     const handleMenuClick = (menu) => {
+        if (selectMenu === menu)
         setSelectMenu(menu);
     };
 
     return (
     <>
         <Container>
-            <HomeTag onClick={() => {setSelectMenu('홈 화면')}}isSelected={selectMenu === '홈 화면'}>홈 화면</HomeTag>
-            <GuideTag onClick={() => {setSelectMenu('주식 초보자 가이드')}}isSelected={selectMenu === '주식 초보자 가이드'}>주식 초보자 가이드</GuideTag>
-            <ChatbotTag onClick={() => {setSelectMenu('챗봇 서비스 이용하기')}}isSelected={selectMenu === '챗봇 서비스 이용하기'}>챗봇 서비스 이용하기</ChatbotTag>
+            <HomeTag onClick={() => {setSelectMenu('홈 화면'); navigate('/Main');}}isSelected={selectMenu === '홈 화면'}>홈 화면</HomeTag>
+            <GuideTag onClick={() => {setSelectMenu('주식 초보자 가이드'); navigate('/Starter');}}isSelected={selectMenu === '주식 초보자 가이드'}>주식 초보자 가이드</GuideTag>
+            <ChatbotTag onClick={() => {setSelectMenu('챗봇 서비스 이용하기'); }}isSelected={selectMenu === '챗봇 서비스 이용하기'}>챗봇 서비스 이용하기</ChatbotTag>
             {/* <HighlightBox isSelected={selectMenu === '주식 초보자 가이드'} /> */}
         </Container>
     </>

@@ -3,6 +3,9 @@ import './login_sty.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineLeft, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { serverUrl , loginEndpoint } from '../config';
+
+const LoginUrl = serverUrl + loginEndpoint;
 
 function MemLogin() {
 
@@ -46,7 +49,7 @@ function MemLogin() {
             userid.focus();
             return
         }else{
-            fetch("http://ec2-3-34-67-41.ap-northeast-2.compute.amazonaws.com:8080/api/user/signin",
+            fetch(LoginUrl,
         {
           method: 'post',
           headers: {

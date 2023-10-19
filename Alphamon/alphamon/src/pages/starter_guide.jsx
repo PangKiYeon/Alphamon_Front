@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BiSearch } from "react-icons/bi";
 import Header from '../components/Main/Header';
+import TopMenu from '../components/Main/TopMenu';
+
+const GetTopMenu = styled(TopMenu)`
+
+`;
 
 const Startergu = styled.div`
 width: 414px;
 height: 896px;
 border-radius: 32px;
 background: #FAFAFA;
-position: relative;
+position: absolute;
 `;
 
 const Searchgu = styled.div`
@@ -17,7 +22,7 @@ height: 42px;
 border-radius: 8px;
 background: var(--light-gray-2, #F5F5F5);
 position: relative;
-margin-top: 109px;
+margin-top: 205px;
 margin-left: 14px;
 `;
 
@@ -41,10 +46,6 @@ margin-top: 17px;
 margin-left: 36px;
 border-radius: 8px;
 border: 1.5px solid var(--light-gray-4, #D9D9D9);
-`;
-
-const Header_start = styled(Header)`
-position: absolute;
 `;
 
 const Question = styled.div`
@@ -119,6 +120,7 @@ function Guide() {
   return (
     <Startergu>
       <Header />
+      <GetTopMenu />
       <Searchgu>
         <Searchicon />
         <Searchinput

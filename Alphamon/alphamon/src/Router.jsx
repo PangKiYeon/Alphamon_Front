@@ -9,7 +9,7 @@ import Join from '../src/pages/memjoin_z'
 import Cmain from '../src/pages/community/Cmain'
 import Post from '../src/pages/community/Post'
 import Mypage from '../src/pages/mypage/mypage'
-
+import Starter from '../src/pages/starter_guide'
 
 const Router = () => {
   return (
@@ -23,6 +23,7 @@ const Router = () => {
         <Route path="/cmain" element={<Cmain />} />
         <Route path="/post/:postId" element={<Post />} /> 
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/starter" element={<Starter />} />
       </Routes>
     </BrowserRouter>
   );
