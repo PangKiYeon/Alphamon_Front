@@ -104,6 +104,7 @@ const JoinUrl = serverUrl + joinEndpoint;
         agreebox.focus();
       }
       else{
+        localStorage.setItem("nickname", inputs.nickname);
         fetch(JoinUrl,
         {
           method: 'post',
