@@ -30,13 +30,43 @@ function Cmain() {
       currentDate.getMonth() + 1
     }-${currentDate.getDate()}`;
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-    
+    setNickname(localStorage.getItem("nickname"));
   }, []);
 
   const handleMenuSelect = (menu) => {
     setSelectedMenu(menu);
   };
 
+  const handleSend = async (e) => {
+    const postUrl = `${serverUrl}/api/community/post`;
+    try {
+    const nickname = "testUser";
+    // setnickname 가져와서 하기
+    const response = await fetch(postUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json;charset=UTF-8',
+      },
+      body: JSON.stringify({
+        nickname,
+        content,
+        // tendency 넣기
+      }),
+    });
+    // console.log(response);
+    if (response.ok) {
+      // alert(response.message);
+      // swagger
+      console.log('게시글 작성 성공:', response.status);
+    } else {
+      // 오류 내용을 다르게 해주기
+      console.error('게시글 작성 실패:', response.statusText);
+    }
+  } catch (error) {
+    console.error('게시글 작성 실패:', error);
+  }
+};
+  
 
 
   const handleSubmit = async (e) => {
@@ -45,7 +75,7 @@ function Cmain() {
     try {
       const id = 123; 
       const tendency = 'Some Tendency';
-      const nickname = 'UserNickname'; 
+      const nickname = 'testUser'; 
       const time = new Date().toISOString();
       const viewcount = 0;
 
@@ -91,7 +121,7 @@ function Cmain() {
                 onChange={(e) => setContent(e.target.value)}
               />
         </form>     
-        <SubmitButton type="submit">
+        <SubmitButton onClick={handleSend}>
           <ButtonImage src="icons/send.png" alt="Submit" />
         </SubmitButton>
       </ContentContainer>
@@ -130,7 +160,7 @@ const Textarea = styled.textarea`
   font-family: 'Poppins', sans-serif;
 `;
 
-const SubmitButton = styled.button`
+const SubmitButton = styled.div`
   width: 19px;
   height: 19px;
   border: none;

@@ -34,19 +34,40 @@ function Post() {
     setNewComment(event.target.value);
   };
 
-  const handleCommentSubmit = () => {
+  const handleCommentSubmit = async () => {
     const newCommentObj = {
-      commentId: comments.length + 1, 
-      parentCommentId: null,
-      nickname: '사용자', 
+      parentCommentId: 1, 
+      // parentCommentId: null,
+      nickname: "testUser", 
       content: newComment,
-      createdDateTime: new Date().toISOString(),
+      // createdDateTime: new Date().toISOString(),
     };
 
     // 댓글 목록
     setComments([...comments, newCommentObj]);
     setNewComment('');
 
+    const postUrl = `${serverUrl}/api/community/comment/${postId}`;
+    try {
+      const nickname = "testUser";  
+      const response = await fetch(postUrl, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json;charset=UTF-8',
+        },
+        body: JSON.stringify(newCommentObj),
+
+      });
+      console.log(response);
+      if (response.ok) {
+        console.log('댓글 작성 성공:', response.status);
+      } else {
+
+        console.error('댓글 작성 실패:', response.statusText);
+      }
+    } catch (error) {
+      console.error('댓글작성 실패:', error);
+    }
     // 서버에 새 댓글을 저장
     // 게시글 post 구현 후 넘어오기
   };
