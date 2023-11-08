@@ -18,7 +18,7 @@ function TopMenu() {
         <Container>
             <HomeTag onClick={() => {setSelectMenu('홈 화면'); navigate('/Main');}}isSelected={selectMenu === '홈 화면'}>홈 화면</HomeTag>
             <GuideTag onClick={() => {setSelectMenu('주식 초보자 가이드'); navigate('/Starter');}}isSelected={selectMenu === '주식 초보자 가이드'}>주식 초보자 가이드</GuideTag>
-            <ChatbotTag onClick={() => {setSelectMenu('챗봇 서비스 이용하기'); }}isSelected={selectMenu === '챗봇 서비스 이용하기'}>챗봇 서비스 이용하기</ChatbotTag>
+            <ChatbotTag onClick={() => {setSelectMenu('챗봇 서비스 이용하기'); navigate('/chatbot'); }}isSelected={selectMenu === '챗봇 서비스 이용하기'}>챗봇 서비스 이용하기</ChatbotTag>
             {/* <HighlightBox isSelected={selectMenu === '주식 초보자 가이드'} /> */}
         </Container>
     </>

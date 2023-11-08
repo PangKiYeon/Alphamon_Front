@@ -3,10 +3,7 @@ import styled from 'styled-components';
 import { BiSearch } from "react-icons/bi";
 import Header from '../components/Main/Header';
 import TopMenu from '../components/Main/TopMenu';
-
-const GetTopMenu = styled(TopMenu)`
-
-`;
+import BottomMenu from '../components/Main/BottomMenu'
 
 const Startergu = styled.div`
 width: 414px;
@@ -28,7 +25,7 @@ margin-left: 14px;
 
 const Gutitle = styled.div`
 color: var(--light-gray-11, #000);
-font-family: Poppins;
+font-family: 'Poppins', sans-serif;
 font-size: 16px;
 font-weight: 500;
 line-height: 24px;
@@ -52,7 +49,7 @@ const Question = styled.div`
 width: 247px;
 height: 24px;
 color: var(--light-gray-11, #000);
-font-family: Poppins;
+font-family: 'Poppins', sans-serif;
 font-size: 14px;
 font-weight: 400;
 line-height: 20px;
@@ -64,7 +61,7 @@ padding-left: 16px;
 const Answer = styled.div`
 width: 282px;
 color: var(--light-gray-7, #757575);
-font-family: Roboto;
+font-family: 'Poppins', sans-serif;
 font-size: 14px;
 font-weight: 400;
 line-height: 20px;
@@ -87,7 +84,7 @@ width: 332px;
 border: none;
 outline: none;
 background: var(--light-gray-2, #F5F5F5);
-font-family: Roboto;
+font-family: 'Poppins', sans-serif;
 font-size: 14px;
 font-weight: 400;
 letter-spacing: 0.25px; 
@@ -120,7 +117,7 @@ function Guide() {
   return (
     <Startergu>
       <Header />
-      <GetTopMenu />
+      <TopMenu />
       <Searchgu>
         <Searchicon />
         <Searchinput
@@ -137,6 +134,7 @@ function Guide() {
           <Answer>A. {item.answer}</Answer>
         </Guqnabox>
       ))}
+      <BottomMenu />
     </Startergu>
   );
 }

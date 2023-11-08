@@ -3,9 +3,7 @@ import './memjoin_sty.css';
 import { useState } from 'react';
 import { AiOutlineLeft, AiFillLock, AiFillUnlock } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import { serverUrl , joinEndpoint } from '../config';
-
-const JoinUrl = serverUrl + joinEndpoint;
+import { serverUrl , joinEndpoint, nicknamecheckEndpoint } from '../../config';
 
   function Memjoin() {
 
@@ -17,14 +15,13 @@ const JoinUrl = serverUrl + joinEndpoint;
     let sex = document.querySelector('#sex');
     let career = document.querySelector('#career');
     let agreebox = document.querySelector('#agreebox');
+    let nickbtn = document.querySelector('#nickbtn');
 
     const [passwordType, setpasswordType] = useState('password');
 
     const handlepasswordType = () => {
       setpasswordType(prevType => (prevType === 'password' ? 'text' : 'password'));
     }
-
-    const [nicknameAv, setnicknameAv] = useState(false);
 
     const [agreeAv, setagreeAv] = useState(false);
 
@@ -40,6 +37,28 @@ const JoinUrl = serverUrl + joinEndpoint;
       sex: '',
       career:'',
     });
+
+    const [nickAv, setnickAv] = useState(false);
+
+    const handlenick = () => {
+      fetch(CheckUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.code === 200) {
+          alert(data.message);
+          setnickAv(true);
+        } else if (data.code === 400) {
+          alert(data.message);
+          setnickAv(false);
+          nickname.focus();
+        } else {
+          alert('오류가 발생하였습니다');
+        }
+      })
+      .catch(error => {
+        console.error('오류 발생:', error);
+      });
+    };
 
     const onChange = (e) => {
       const { name, value } = e.target
@@ -61,6 +80,9 @@ const JoinUrl = serverUrl + joinEndpoint;
       let pass3 = /^\d{4}-\d{2}-\d{2}$/;
       return(pass3.test(str))
     };
+    
+    const CheckUrl = serverUrl + nicknamecheckEndpoint + `?nickname=${inputs.nickname}`;
+    const JoinUrl = serverUrl + joinEndpoint;
     
     
     function letsJoin() {
@@ -102,6 +124,9 @@ const JoinUrl = serverUrl + joinEndpoint;
       }else if(agreeAv === false){
         alert("개인 정보 수집 및 이용에 동의해주세요!")
         agreebox.focus();
+      }else if(nickAv === false){
+        alert("닉네임이 중복하는지 확인해주세요!")
+        nickbtn.focus();
       }
       else{
         localStorage.setItem("nickname", inputs.nickname);
@@ -136,7 +161,7 @@ const JoinUrl = serverUrl + joinEndpoint;
           console.error('오류 발생:', error);
         });
       }
-    }
+    };
 
      return (
       <div className='z-join'>
@@ -162,7 +187,7 @@ const JoinUrl = serverUrl + joinEndpoint;
           <div className='form-z'>
             <input type= "text" id ="nickname" name="nickname" onChange={onChange}
             placeholder='닉네임'/>
-            <button className='nickbtn'>중복확인</button>
+            <button className='nickbtn' onClick={handlenick} id="nickbtn">중복확인</button>
           </div>
 
           <div className='form-z'>

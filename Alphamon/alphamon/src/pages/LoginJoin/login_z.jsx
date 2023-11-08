@@ -3,7 +3,7 @@ import './login_sty.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineLeft, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { serverUrl , loginEndpoint } from '../config';
+import { serverUrl , loginEndpoint } from '../../config';
 
 const LoginUrl = serverUrl + loginEndpoint;
 
@@ -64,6 +64,8 @@ function MemLogin() {
         .then(responseData => {
           if(responseData.code === 200) {
             alert(responseData.message);
+            localStorage.setItem('nickname',responseData.data.nickname);
+            localStorage.setItem('tendency',responseData.data.tendency);
             navigate('/main');
           }else if (responseData.code === 400) {
             alert(responseData.message);

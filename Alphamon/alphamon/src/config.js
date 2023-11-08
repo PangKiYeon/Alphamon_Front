@@ -4,8 +4,10 @@ const joinEndpoint = process.env.REACT_APP_ENDPOINT_JOIN;
 const sendEndpoint = process.env.REACT_APP_ENDPOINT_CHAT_SEND;
 const communitypostEndpoint = process.env.REACT_APP_ENDPOINT_COMMUNITYPOST;
 const communitypostIDEndpoint = process.env.REACT_APP_ENDPOINT_COMMUNITYPOSTID;
-const boardEndpoint = process.env.REACT_APP_ENDPOINT_BOARD
-const commentpostEndpoint = process.env.REACT_APP_ENDPOINT_COMMENTPOST
+const boardEndpoint = process.env.REACT_APP_ENDPOINT_BOARD;
+const commentpostEndpoint = process.env.REACT_APP_ENDPOINT_COMMENTPOST;
+const nicknamecheckEndpoint = process.env.REACT_APP_ENDPOINT_NICKNAME_CHECK;
+const chatclearEndpoint = process.env.REACT_APP_ENDPOINT_CHAT_CLEAR;
 
 module.exports = {
   serverUrl,
@@ -16,4 +18,6 @@ module.exports = {
   communitypostIDEndpoint,
   boardEndpoint,
   commentpostEndpoint,
+  nicknamecheckEndpoint,
+  chatclearEndpoint
 };
