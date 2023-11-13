@@ -32,6 +32,7 @@ function BottomMenu() {
                     alt="두번째메뉴"
                     onClick={() => {
                         handleMenuClick('두번째메뉴');
+                        navigate('/Model');
                     }}
                     isSelected={selectMenu === '두번째메뉴'}
                 />
