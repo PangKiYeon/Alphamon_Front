@@ -11,6 +11,14 @@ import Post from '../src/pages/community/Post'
 import Mypage from '../src/pages/mypage/mypage'
 import Starter from '../src/pages/starter_guide'
 import Chatbot from '../src/pages/chatbot'
+import Model from './pages/Model/Model';
+import Modela from './pages/Model/Modela';
+import Modelaa from './pages/Model/Modelaa';
+import Modelaaa from './pages/Model/Modelaaa';
+import Modelb from './pages/Model/Modelb';
+import Modelc from './pages/Model/Modelc';
+import Modelcc from './pages/Model/Modelcc';
+import Modelccc from './pages/Model/Modelccc';
 
 const Router = () => {
   return (
@@ -26,6 +34,14 @@ const Router = () => {
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/starter" element={<Starter/>} />
         <Route path='/chatbot' element={<Chatbot/>} />
+        <Route path='/model' element={<Model/>} />
+        <Route path='/modela' element={<Modela/>} />
+        <Route path='/modelaa' element={<Modelaa/>} />
+        <Route path='/modelaaa' element={<Modelaaa/>} />
+        <Route path='/modelb' element={<Modelb/>} />
+        <Route path='/modelc' element={<Modelc/>} />
+        <Route path='/modelcc' element={<Modelcc/>} />
+        <Route path='/modelccc' element={<Modelccc/>} />
       </Routes>
     </BrowserRouter>
   );
