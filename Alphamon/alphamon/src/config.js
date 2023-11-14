@@ -8,6 +8,7 @@ const boardEndpoint = process.env.REACT_APP_ENDPOINT_BOARD;
 const commentpostEndpoint = process.env.REACT_APP_ENDPOINT_COMMENTPOST;
 const nicknamecheckEndpoint = process.env.REACT_APP_ENDPOINT_NICKNAME_CHECK;
 const chatclearEndpoint = process.env.REACT_APP_ENDPOINT_CHAT_CLEAR;
+const newsEndpoint = process.env.REACT_APP_ENDPOINT_NEWS;
 
 module.exports = {
   serverUrl,
@@ -19,5 +20,6 @@ module.exports = {
   boardEndpoint,
   commentpostEndpoint,
   nicknamecheckEndpoint,
-  chatclearEndpoint
+  chatclearEndpoint,
+  newsEndpoint,
 };
