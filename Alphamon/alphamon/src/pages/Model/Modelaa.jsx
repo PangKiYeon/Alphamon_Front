@@ -46,7 +46,7 @@ function Modelaa() {
           <Button1 onClick={handleNext1}>이전</Button1>
           <Button2 onClick={handleNext2}>결과보기</Button2>
       </ButtonContainer>
-      <BottomMenu />
+      <BottomMenu select={"두번째메뉴"}/>
     </Container>
   );
 }
