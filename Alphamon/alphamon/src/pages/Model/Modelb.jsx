@@ -10,7 +10,7 @@ function Modelb() {
     <Container>
       <Header></Header>   
         <Text>Model b 결과 페이지</Text>
-      <BottomMenu></BottomMenu>
+      <BottomMenu select={"두번째메뉴"}/>
     </Container>
   </>
   );

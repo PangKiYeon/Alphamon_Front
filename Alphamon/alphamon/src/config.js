@@ -9,11 +9,10 @@ const commentpostEndpoint = process.env.REACT_APP_ENDPOINT_COMMENTPOST;
 const nicknamecheckEndpoint = process.env.REACT_APP_ENDPOINT_NICKNAME_CHECK;
 const chatclearEndpoint = process.env.REACT_APP_ENDPOINT_CHAT_CLEAR;
 const predictpriceEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_PRICE;
-const predictportfolioEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_PORTOFOLIO;
+const predictportfolioEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_PORTFOLIO;
 const predictmarketEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_MARKET;
 const newsEndpoint = process.env.REACT_APP_ENDPOINT_NEWS;
 const tendencyEndpoint = process.env.REACT_APP_ENDPOINT_TENDENCY;
-
 
 module.exports = {
   serverUrl,
@@ -29,6 +28,7 @@ module.exports = {
   predictpriceEndpoint,
   predictportfolioEndpoint,
   predictmarketEndpoint,
+  newsEndpoint
   newsEndpoint,
   tendencyEndpoint,
 };

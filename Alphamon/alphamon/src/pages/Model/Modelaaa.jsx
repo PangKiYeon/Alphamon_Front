@@ -14,7 +14,7 @@ const Modelaaa = () => {
       <Header />
       <Container>
         <Text>Model a 결과 페이지</Text>
-      <BottomMenu />
+      <BottomMenu select={"두번째메뉴"}/>
       </Container>
     </>
   );

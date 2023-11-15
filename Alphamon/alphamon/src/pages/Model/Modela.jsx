@@ -16,9 +16,10 @@ const Modela = () => {
 
   const handleNext2 = async () => {
     try {
+      const nickname = localStorage.getItem('nickname');
       // API 요청을 위한 데이터 구조
       const requestData = {
-        nickname: 'testUser',
+        nickname: nickname,
         ticker: stockCode,
       };
 
@@ -31,7 +32,7 @@ const Modela = () => {
         body: JSON.stringify(requestData),
       });
 
-      // 성공적인 응답
+      // 응답 성공
       if (response.ok) {
         const result = await response.json();
         console.log('API 응답:', result);
@@ -59,7 +60,7 @@ const Modela = () => {
           <Button1 onClick={handleNext1}>이전</Button1>
           <Button2 onClick={handleNext2}>다음</Button2>
         </ButtonContainer>
-      <BottomMenu />
+        <BottomMenu select={"두번째메뉴"}/>
       </Container>
     </>
   );

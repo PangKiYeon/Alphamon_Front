@@ -35,10 +35,12 @@ function Post() {
   };
 
   const handleCommentSubmit = async () => {
+    const nickname = localStorage.getItem('nickname');
+    
     const newCommentObj = {
       parentCommentId: 1, 
       // parentCommentId: null,
-      nickname: "testUser", 
+      nickname: nickname, 
       content: newComment,
       // createdDateTime: new Date().toISOString(),
     };
@@ -49,7 +51,7 @@ function Post() {
 
     const postUrl = `${serverUrl}/api/community/comment/${postId}`;
     try {
-      const nickname = "testUser";  
+      const nickname = localStorage.getItem('nickname');
       const response = await fetch(postUrl, {
         method: 'POST',
         headers: {

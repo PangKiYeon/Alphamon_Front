@@ -40,7 +40,7 @@ function Cmain() {
   const handleSend = async (e) => {
     const postUrl = `${serverUrl}/api/community/post`;
     try {
-    const nickname = "testUser";
+    const nickname = localStorage.getItem('nickname');
     // setnickname 가져와서 하기
     const response = await fetch(postUrl, {
       method: 'POST',
@@ -75,7 +75,7 @@ function Cmain() {
     try {
       const id = 123; 
       const tendency = 'Some Tendency';
-      const nickname = 'testUser'; 
+      localStorage.getItem('nickname'); 
       const time = new Date().toISOString();
       const viewcount = 0;
 

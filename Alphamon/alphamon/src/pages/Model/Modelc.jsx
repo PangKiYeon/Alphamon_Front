@@ -16,12 +16,11 @@ const Modelc = () => {
   const handleNext2 = async () => {
     try {
       // 입력된 주식 코드를 배열로 변환
-      const stockList = stockCodes.split(',');
-
+      const nickname = localStorage.getItem('nickname');
       // 데이터
       const requestData = {
-        nickname: 'testUser',
-        stock_list: stockList.join(','), 
+        nickname: nickname,
+        stock_list: stockCodes,
       };
 
       // API 호출
@@ -58,13 +57,13 @@ const Modelc = () => {
         <Text>가지고 있는 <br />주식 종목 코드를 입력해주세요</Text>
         <Text1>쉼표로 구분하여 입력해주세요!</Text1>
         <InputBox type="text" placeholder="주식 종목 코드 입력" 
-        value={stockCodes}
+        value={ stockCodes }
         onChange={handleInputChange}/>
         <ButtonContainer>
           <Button1 onClick={handleNext1}>이전</Button1>
           <Button2 onClick={handleNext2}>다음</Button2>
         </ButtonContainer>
-      <BottomMenu />
+      <BottomMenu select={"두번째메뉴"}/>
       </Container>
     </>
   );
