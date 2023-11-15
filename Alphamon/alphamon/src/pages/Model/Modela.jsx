@@ -5,6 +5,7 @@ import Header from '../../components/Main/Header';
 import BottomMenu from '../../components/Main/BottomMenu';
 import { serverUrl, predictpriceEndpoint} from '../../config';
 
+
 const Modela = () => {
   const navigate = useNavigate();
   // 주식 코드 상태
@@ -36,6 +37,8 @@ const Modela = () => {
       if (response.ok) {
         const result = await response.json();
         console.log('API 응답:', result);
+
+        localStorage.setItem('modelAData', JSON.stringify(result));
         navigate('/modelaa');
       } else {
         // 실패한 경우

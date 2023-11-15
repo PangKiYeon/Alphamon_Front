@@ -27,6 +27,5 @@ module.exports = {
   predictpriceEndpoint,
   predictportfolioEndpoint,
   predictmarketEndpoint,
-  newsEndpoint
   newsEndpoint,
 };
