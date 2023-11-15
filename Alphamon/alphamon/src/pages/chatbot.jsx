@@ -13,9 +13,8 @@ const Chat = styled.div`
 width: 414px;
 height: 896px;
 border-radius: 32px;
-background: #FAFAFA;
 position: relative;
-`;
+`; 
 
 const ContainerChat = styled(ChatContainer)`
 height: 625px;
@@ -188,10 +187,10 @@ function Chatbot() {
     return(
         <Chat>
           <Header />
-          <TopMenu />
+          <TopMenu select = "챗봇 서비스 이용하기"/>
           <ContainerChat>
-            <MessageList scrollBehavior='smooth' style={{backgroundColor : '#FAFAFA'}}
-            typingIndicator={typing ? <TypingIndicator content = "ChatGPT가 답변을 작성하고 있어요!" style={{fontFamily: 'Poppins', backgroundColor: '#FAFAFA'}}/> : null} >
+            <MessageList scrollBehavior='smooth'
+            typingIndicator={typing ? <TypingIndicator content = "ChatGPT가 답변을 작성하고 있어요!" style={{fontFamily: 'Poppins'}}/> : null} >
               {messages.map((message,i) => {
                 return ( <Message key={i} model={message} style={{fontFamily: 'Poppins', borderRadius: '10px', marginBottom : '15px'}}>
                          <Message.Footer>{message.time}</Message.Footer>

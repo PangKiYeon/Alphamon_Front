@@ -9,8 +9,7 @@ const Startergu = styled.div`
 width: 414px;
 height: 896px;
 border-radius: 32px;
-background: #FAFAFA;
-position: absolute;
+position: absolute; 
 `;
 
 const Searchgu = styled.div`
@@ -33,7 +32,7 @@ letter-spacing: 0.1px;
 position: aboslute;
 margin-top: 30px;
 margin-left: 36px;
-margin-bottom: 4px;
+margin-bottom: 4px; 
 `;
 
 const Guqnabox = styled.div`
@@ -117,7 +116,7 @@ function Guide() {
   return (
     <Startergu>
       <Header />
-      <TopMenu />
+      <TopMenu select = "주식 초보자 가이드" />
       <Searchgu>
         <Searchicon />
         <Searchinput

@@ -47,7 +47,7 @@ function Model() {
         </Box4>
       </BoxesContainer>
     
-      <BottomMenu />
+      <BottomMenu select={"두번째메뉴"}/>
     </Container>
   );
 }

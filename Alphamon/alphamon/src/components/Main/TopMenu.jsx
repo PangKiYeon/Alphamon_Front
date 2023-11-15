@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
 
-function TopMenu() {
+function TopMenu({select}) {  
     const navigate = useNavigate();
-    const [selectMenu, setSelectMenu] = useState('홈 화면'); 
+    const [selectMenu, setSelectMenu] = useState(select); 
     console.log(selectMenu);
 
     const handleMenuClick = (menu) => {
         if (selectMenu === menu)
-        setSelectMenu(menu);
+        setSelectMenu(menu); 
     };
 
     return (
@@ -23,7 +23,7 @@ function TopMenu() {
         </Container>
     </>
     );
-
+ 
     // topmenu 를 props 끌어와서 state마다 components를 보여주는 방식은 어떤지
 }
 
