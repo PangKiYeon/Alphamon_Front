@@ -1,13 +1,41 @@
+import React, { useState } from 'react';
 import Header from '../../components/Main/Header';
 import BottomMenu from '../../components/Main/BottomMenu';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { serverUrl, predictmarketEndpoint } from '../../config';
 
 function Model() {
   const navigate = useNavigate();
 
-  const handleBoxClick = (route) => {
-    navigate(route);
+  const handleBoxClick = async (route) => {
+    // box2를 클릭하면 API 호출
+    if (route === '/modelb') {
+      try {
+        // API 호출
+        const response = await fetch(`${serverUrl}${predictmarketEndpoint}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        // 성공
+        if (response.ok) {
+          const result = await response.json();
+          console.log('API 응답:', result);
+          navigate(route);
+        } else {
+          // 실패
+          console.error('API 오류:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error('API 호출 중 오류:', error);
+      }
+    } else {
+      // 다른 페이지 이동
+      navigate(route);
+    }
   };
 
   return (
