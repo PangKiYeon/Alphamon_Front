@@ -24,7 +24,13 @@ function Model() {
         if (response.ok) {
           const result = await response.json();
           console.log('API 응답:', result);
-          navigate(route);
+          
+          // localStorage에 데이터 저장
+          localStorage.setItem('modelBData', JSON.stringify(result));
+
+          // Modelb 페이지로 이동
+          navigate('/modelb');
+          
         } else {
           // 실패
           console.error('API 오류:', response.status, response.statusText);
