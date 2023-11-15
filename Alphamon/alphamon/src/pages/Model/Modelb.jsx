@@ -15,7 +15,7 @@ function Modelb() {
     return null;
   }
 
-  const { negative_news_count, positive_news_count, negative_news_examples, positive_news_examples, prediction } = storedData;
+  const { negative_news_count, positive_news_count,  prediction_result } = storedData;
 
   // 그래프 데이터 설정
   const chartData = {
@@ -39,7 +39,7 @@ function Modelb() {
           <Doughnut data={chartData} />
         </ChartContainer>
 
-        {/* 부정적 뉴스 예시 */}
+        {/* 부정적 뉴스 예시
         <ResultContainer>
           <ResultText>Negative News Examples:</ResultText>
           <NewsList>
@@ -50,18 +50,18 @@ function Modelb() {
         </ResultContainer>
 
         {/* 긍정적 뉴스 예시 */}
-        <ResultContainer>
+        {/* <ResultContainer>
           <ResultText>Positive News Examples:</ResultText>
           <NewsList>
             {positive_news_examples.map((example, index) => (
               <li key={index}>{example}</li>
             ))}
           </NewsList>
-        </ResultContainer>
+        </ResultContainer> */}
 
         {/* 예측 결과 */}
         <ResultContainer>
-          <ResultText>Prediction: {prediction}</ResultText>
+          <ResultText>Prediction: {prediction_result}</ResultText>
         </ResultContainer>
 
         <BottomMenu select={'두번째메뉴'} />

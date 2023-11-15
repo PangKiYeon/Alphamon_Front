@@ -24,7 +24,7 @@ const Modelaaa = () => {
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
         pointRadius: 5,
-        data: [average_prediction, Bollinger, MACD, MOK, RSI, STCK, VR, WR],
+        data: [modelAstoredData.data.average_prediction, modelAstoredData.data.Bollinger, modelAstoredData.data.MACD, modelAstoredData.data.MOK, modelAstoredData.data.RSI, modelAstoredData.data.STCK, modelAstoredData.data.VR, modelAstoredData.data.WR],
       },
     ],
   };
@@ -32,9 +32,12 @@ const Modelaaa = () => {
   // 차트 옵션
   const options = {
     scales: {
+      x : {
+        barPercentage: 1.0,
+      },
       y: {
         beginAtZero: true,
-        max: 100,
+        max: 150,
       },
     },
   };
@@ -68,7 +71,7 @@ const Modelaaa = () => {
     <>
       <Header />
       <Container>
-        <Text>Model a 결과 페이지</Text>
+        <Text></Text>
         <ChartContainer>
           <canvas id="myChart"></canvas>
         </ChartContainer>
@@ -87,16 +90,19 @@ const Container = styled.div`
 const Text = styled.div`
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 16px;
-  margin-left: 35px;
   font-weight: bold;
   text-align: left;
 `;
 
+const Canvas = styled.canvas`
+  width: 100%;
+  height: 100%;
+`;
+
 const ChartContainer = styled.div`
-  width: 80%;
+  width: 95%;
   margin: 20px auto;
-  height: 400px;
+  height: 1000px;
 `;
 
 export default Modelaaa;
