@@ -95,6 +95,7 @@ width: 43px;
 height: 43px;
 margin-right: 314px;
 margin-top: 203px;
+color: #C5C7CB;
 `;
 
 const NewsSource = styled.div`

@@ -36,6 +36,7 @@ const Modelc = () => {
       if (response.ok) {
         const result = await response.json();
         console.log('API 응답:', result);
+        localStorage.setItem('modelCData', JSON.stringify(result));
         navigate('/modelcc');
       } else {
         // 실패

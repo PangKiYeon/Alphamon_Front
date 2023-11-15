@@ -15,14 +15,14 @@ function Modelb() {
     return null;
   }
 
-  const { negative_news_count, positive_news_count,  prediction_result } = storedData;
+  const { negative_percentage, positive_percentage,  prediction_result } = storedData;
 
   // 그래프 데이터 설정
   const chartData = {
     labels: ['Negative News', 'Positive News'],
     datasets: [
       {
-        data: [negative_news_count, positive_news_count],
+        data: [storedData.data.negative_percentage, storedData.data.positive_percentage, , storedData.data.prediction_result],
         backgroundColor: ['#FF5733', '#33FF57'],
       },
     ],
@@ -32,7 +32,7 @@ function Modelb() {
     <>
       <Container>
         <Header />
-        <Text>Model b 결과 페이지</Text>
+        <Text></Text>
 
         {/* 원 그래프 */}
         <ChartContainer>
@@ -61,7 +61,7 @@ function Modelb() {
 
         {/* 예측 결과 */}
         <ResultContainer>
-          <ResultText>Prediction: {prediction_result}</ResultText>
+          <ResultText>{storedData.data.prediction_result}</ResultText>
         </ResultContainer>
 
         <BottomMenu select={'두번째메뉴'} />
@@ -98,6 +98,11 @@ const ResultContainer = styled.div`
 const ResultText = styled.div`
   font-size: 16px;
   margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NewsList = styled.ul`
