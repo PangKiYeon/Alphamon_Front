@@ -1,18 +1,54 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Main/Header';
 import BottomMenu from '../../components/Main/BottomMenu';
+import { serverUrl, predictportfolioEndpoint} from '../../config';
 
 const Modelc = () => {
   const navigate = useNavigate();
+  const [stockCodes, setStockCodes] = useState('');
 
   const handleNext1 = () => {
     navigate('/model');
   };
 
-  const handleNext2 = () => {
-    navigate('/modelcc');
+  const handleNext2 = async () => {
+    try {
+      // 입력된 주식 코드를 배열로 변환
+      const stockList = stockCodes.split(',');
+
+      // 데이터
+      const requestData = {
+        nickname: 'testUser',
+        stock_list: stockList.join(','), 
+      };
+
+      // API 호출
+      const response = await fetch(`${serverUrl}${predictportfolioEndpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      // 응답 성공
+      if (response.ok) {
+        const result = await response.json();
+        console.log('API 응답:', result);
+        navigate('/modelcc');
+      } else {
+        // 실패
+        console.error('API 오류:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('API 호출 중 오류:', error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setStockCodes(e.target.value);
   };
 
   return (
@@ -21,7 +57,9 @@ const Modelc = () => {
       <Container>
         <Text>가지고 있는 <br />주식 종목 코드를 입력해주세요</Text>
         <Text1>쉼표로 구분하여 입력해주세요!</Text1>
-        <InputBox type="text" placeholder="주식 종목 코드 입력" />
+        <InputBox type="text" placeholder="주식 종목 코드 입력" 
+        value={stockCodes}
+        onChange={handleInputChange}/>
         <ButtonContainer>
           <Button1 onClick={handleNext1}>이전</Button1>
           <Button2 onClick={handleNext2}>다음</Button2>

@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Main/Header';
 import BottomMenu from '../../components/Main/BottomMenu';
+import { serverUrl, predictpriceEndpoint} from '../../config';
 
 const Modela = () => {
   const navigate = useNavigate();
+  // 주식 코드 상태
+  const [stockCode, setStockCode] = useState('');
 
   const handleNext1 = () => {
     navigate('/model');
   };
 
-  const handleNext2 = () => {
-    navigate('/modelaa');
+  const handleNext2 = async () => {
+    try {
+      // API 요청을 위한 데이터 구조
+      const requestData = {
+        nickname: 'testUser',
+        ticker: stockCode,
+      };
+
+      // API 호출
+      const response = await fetch(`${serverUrl}${predictpriceEndpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      // 성공적인 응답
+      if (response.ok) {
+        const result = await response.json();
+        console.log('API 응답:', result);
+        navigate('/modelaa');
+      } else {
+        // 실패한 경우
+        console.error('API 오류:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('API 호출 중 오류:', error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setStockCode(e.target.value);
   };
 
   return (
@@ -20,7 +54,7 @@ const Modela = () => {
       <Header />
       <Container>
         <Text>원하는 주식 종목 코드를 <br />입력해주세요</Text>
-        <InputBox type="text" placeholder="주식 종목 코드 입력" />
+        <InputBox type="text" placeholder="주식 종목 코드 입력"  value={stockCode} onChange={handleInputChange}  />
         <ButtonContainer>
           <Button1 onClick={handleNext1}>이전</Button1>
           <Button2 onClick={handleNext2}>다음</Button2>
