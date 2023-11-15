@@ -1,7 +1,9 @@
 import '../Test.css';
 import { useEffect, useState } from 'react';
+import { serverUrl , tendencyEndpoint } from '../config'; //확인 필요
 
 function App() {
+  const [stock, setStock] = useState([]);
 
   const setVh = () => {
     const vh = window.innerHeight * 0.01;
@@ -148,18 +150,22 @@ function App() {
 
     let il = {
       '0': {
+        type: "LION",
         name: '강력한 결단력과 자신감 있는 투자 스킬을 활용하여 고수익을 얻어내는 공격투자형 <사자>',
         desc: ['공격투자형인 당신!', '주식 시장에서 변동성이 큰 종목에 집중적으로 투자하며', '단기적인 시장 변화를 민감하게 파악하여', '리스크가 크지만 높은 수익을 기대하는 경향을 보이는군요'],
       },
       '1': {
+        type: "SNAKE",
         name: '높은 수익을 위해 적극적이고 감수성 높은 투자를 하는 적극투자형 <뱀>',
         desc: ['적극투자형인 당신!', '높은 위험을 감수하고, 단기적인 시장 변화를 잘 파악하여', '주기적으로 매매를 시도하며 주식 시장의 흐름을 적극적으로 활용하는 경향을 보이는군요'],
       },
       '2': {
+        type: "MONKEY",
         name: '안정적이고 꾸준한 수익을 추구하는 위험중립형 <원숭이>',
         desc: ['위험중립형인 당신!', '주식시장에서 높은 위험을 감수하지 않고도 꾸준한 수익을 얻을 수 있는 안정적인 투자를 선호하며', '장기적인 투자를 통해 성장가능성이 높은 기업들에 투자하는 경향을 보이는군요'],
       },
       '3': {
+        type: "SHEEP",
         name: '예측이 가능하고 저리스크, 저수익의 안전한 수익만을 원하는 안정추구형 <양>',
         desc: ['안정추구형인 당신!', '안정적인 성과를 추구하기 위해 안정성이 높은 대형주나 안정성이 높은 성장주 등에 투자하는 경향이 있군요', '안정적이면서 조심스러운 투자 성향이 장기적인 투자에서는 꾸준한 수익을 얻기 좋죠'],
       },
@@ -181,11 +187,43 @@ function App() {
     
         // 가장 많이 선택된 타입에 대응하는 결과
         const resultInfo = il[mostSelectedType.name];
-    
+        console.log(resultInfo.type);
+
         // 결과 정보 설정
         setnamedesc(resultInfo);
 
+        fetchTendency(resultInfo.type);
   }
+
+  async function fetchTendency(number) {
+    try {
+      const response = await fetch( serverUrl+"/api/tendency/update", {
+        method: "POST", 
+        headers: {  
+          "Content-Type": "application/json;charset=UTF-8",
+        }, 
+        body: JSON.stringify({
+          "nickname": localStorage.getItem('nickname'),
+          "tendency": number,
+        }),
+      });
+      
+      const data = await response.json();
+
+      if(data.code === 201) {
+        const recommended = data.data.recommendedStocks;
+        setStock(recommended);
+      } else if (data.code === 400) {
+        alert(data.message);
+      } else if (data.code === 500) {
+        alert(data.message);
+      } else {
+        alert('오류가 발생하였습니다');
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className = "testLayout">
@@ -252,6 +290,15 @@ function App() {
                 <div className='chatBox' key={idx}>
                   <div>◀︎</div> <div>{val}</div>
                 </div>)}
+
+              <div className='chatBox' style={{marginLeft: '13px'}}>
+                <div></div><div style={{background: '#FDFD96'}}>
+                  성향에 맞는 주식을 추천해줄게요 <br />
+                  1. {stock[0]} <br />
+                  2. {stock[1]} <br />
+                  3. {stock[2]} <br />
+                </div> 
+              </div>
             </div>
           </div>
          </div>     

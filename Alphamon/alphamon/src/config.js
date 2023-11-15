@@ -12,6 +12,7 @@ const predictpriceEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_PRICE;
 const predictportfolioEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_PORTFOLIO;
 const predictmarketEndpoint = process.env.REACT_APP_ENDPOINT_PREDICT_MARKET;
 const newsEndpoint = process.env.REACT_APP_ENDPOINT_NEWS;
+const tendencyEndpoint = process.env.REACT_APP_ENDPOINT_TENDENCY;
 
 module.exports = {
   serverUrl,
@@ -28,4 +29,5 @@ module.exports = {
   predictportfolioEndpoint,
   predictmarketEndpoint,
   newsEndpoint,
+  tendencyEndpoint,
 };
