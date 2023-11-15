@@ -29,6 +29,7 @@ function Mypage() {
           <div>내가 작성한 게시글 및 댓글을 확인할 수 있습니다.</div>
         </Community>
      </InfoContainer>
+     <BottomMenu select = "마이메뉴" />
     </Container>
   </>
   );

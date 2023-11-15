@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
+function BottomMenu({select}) {
     const navigate = useNavigate();
+    const [selectMenu, setSelectMenu] = useState(select); 
     console.log(selectMenu);
 
     const handleMenuClick = (menu) => {
@@ -81,7 +83,7 @@ const MenuIcon = styled.img`
     cursor: pointer;
     transition: filter 0.3s;
     filter: ${props => (props.isSelected ? 'invert(48%) sepia(91%) saturate(1437%) hue-rotate(204deg) brightness(91%) contrast(95%)' : 'none')};
-    color: ${props => (props.isSelected ? '#2A64D9' : '#C5C7CB')};`;
+    `;
 
 // HomeMenu icon 수정필요
 const HomeMenu = styled(MenuIcon)`
