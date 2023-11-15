@@ -21,7 +21,6 @@ function Main() {
           <Testexplain>나는 어떤 투자 성향을 가지고 있을까?</Testexplain>
         </TextContainer>
       </Test>
-      <BottomMenu></BottomMenu>
     </Container>
   </>
   );

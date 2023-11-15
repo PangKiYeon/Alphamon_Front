@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-function BottomMenu() {
     const navigate = useNavigate();
-    const [selectMenu, setSelectMenu] = useState('홈메뉴'); 
     console.log(selectMenu);
 
     const handleMenuClick = (menu) => {

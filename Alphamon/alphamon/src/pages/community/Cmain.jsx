@@ -111,7 +111,6 @@ function Cmain() {
       <Container>
         <Cheader></Cheader>
         <CTop onMenuSelect={handleMenuSelect} /> {/* CTop 컴포넌트에 메뉴 선택 핸들러 전달 */}
-        <BottomMenu></BottomMenu>
       </Container>
       <ContentContainer>
         <form onSubmit={handleSubmit}>

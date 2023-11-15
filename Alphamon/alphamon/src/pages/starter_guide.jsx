@@ -99,12 +99,8 @@ function Guide() {
       answer: '답변 예시 1',
     },
     {
-      question: '질문 얘시 2',
-      answer: '답변 예시 2',
     },
     {
-      question: '질문 예시 3',
-      answer: '답변 예시 3',
     },
   ];
 
