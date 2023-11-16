@@ -20,8 +20,8 @@ const Modelaaa = () => {
     datasets: [
       {
         label: 'Predicted Values',
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
         borderWidth: 2,
         pointRadius: 5,
         data: [modelAstoredData.data.average_prediction, modelAstoredData.data.Bollinger, modelAstoredData.data.MACD, modelAstoredData.data.MOK, modelAstoredData.data.RSI, modelAstoredData.data.STCK, modelAstoredData.data.VR, modelAstoredData.data.WR],
@@ -66,7 +66,7 @@ const Modelaaa = () => {
         chartInstance.destroy();
       }
     };
-  }, []); // 빈 배열은 컴포넌트가 마운트될 때만 실행됩니다.
+  }, []); 
 
   return (
     <>

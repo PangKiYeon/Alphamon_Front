@@ -73,7 +73,7 @@ const Modelccc = () => {
         <Text>
           {/* predicted_volatilities */}
           <div>
-            <strong>[ 예측 변동성 ] </strong>
+            <strong> 예측 변동성 ⚠️ </strong>
           </div>
           {Object.values(modelCstoredData.data.predicted_volatilities).map((volatility, index) => (
             <div key={index}>{volatility}</div>
@@ -83,7 +83,7 @@ const Modelccc = () => {
         <Text>
           {/* explanations */}
           <div>
-            <strong>[ Alphamon의 설명 ]</strong>
+            <strong> Alphamon의 설명 🤖</strong>
           </div>
           {Object.values(modelCstoredData.data.explanations).map((explanation, index) => (
             <div key={index}>{explanation}</div>
@@ -106,14 +106,14 @@ const Modelccc = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 130px;
 `;
 
 const Text = styled.div`
   font-size: 10px;
   font-family: 'Poppins', sans-serif;
   margin-left: 35px;
-  font-weight: bold;
+  // font-weight: bold;
   text-align: left;
   margin-bottom: 10px;
 `;
