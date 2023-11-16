@@ -29,10 +29,11 @@ const Modelaaa = () => {
     ],
   };
 
-  // 차트 옵션
+  // Chart 옵션 수정
   const options = {
+    maintainAspectRatio: false,
     scales: {
-      x : {
+      x: {
         barPercentage: 1.0,
       },
       y: {
@@ -101,8 +102,8 @@ const Canvas = styled.canvas`
 
 const ChartContainer = styled.div`
   width: 95%;
-  margin: 20px auto;
-  height: 1000px;
+  margin: 85px auto;
+  height: 450px;
 `;
 
 export default Modelaaa;

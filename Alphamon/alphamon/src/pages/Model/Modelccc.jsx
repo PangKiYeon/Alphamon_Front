@@ -33,7 +33,7 @@ const Modelccc = () => {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(75,192,192,0.6)',
         hoverBorderColor: 'rgba(75,192,192,1)',
-        data: [modelCstoredData.data.risk_contributions],
+        data: modelCstoredData.data.risk_contributions,
       },
     ],
   };
@@ -52,14 +52,25 @@ const Modelccc = () => {
     <>
       <Header />
       <Container>
-        <Text></Text>
+        <Text>
+          {/* predicted_volatilities */}
+          <div>
+            <strong>[ 예측 변동성 ] </strong>
+          </div>
+          {Object.values(modelCstoredData.data.predicted_volatilities).map((volatility, index) => (
+            <div key={index}>{volatility}</div>
+          ))}
+        </Text>
 
-        <Text></Text>
-        <pre>{JSON.stringify(predicted_volatilities, null, 2)}</pre>
-
-
-        <Text></Text>
-        <pre>{JSON.stringify(explanations, null, 2)}</pre>
+        <Text>
+          {/* explanations */}
+          <div>
+            <strong>[ Alphamon의 설명 ]</strong>
+          </div>
+          {Object.values(modelCstoredData.data.explanations).map((explanation, index) => (
+            <div key={index}>{explanation}</div>
+          ))}
+        </Text>
 
         <ChartContainer>
           <Doughnut data={optimalWeightsData} />
@@ -68,9 +79,8 @@ const Modelccc = () => {
         <ChartContainer>
           <Bar data={riskContributionsData} options={options} />
         </ChartContainer>
-
       </Container>
-      <BottomMenu />
+      <BottomMenu select={'두번째메뉴'}/>
     </>
   );
 };
@@ -78,15 +88,16 @@ const Modelccc = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 150px;
 `;
 
 const Text = styled.div`
-  font-size: 18px;
+  font-size: 10px;
   font-family: 'Poppins', sans-serif;
   margin-left: 35px;
   font-weight: bold;
   text-align: left;
+  margin-bottom: 10px;
 `;
 
 const ChartContainer = styled.div`
