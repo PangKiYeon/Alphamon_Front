@@ -120,7 +120,7 @@ const Container = styled.div`
   // padding: 16px;
   // margin: 16px 0;
   color: #5F6368;
-  font-family: Roboto;
+  font-family: Roboto; 
   font-size: 14px;
 `;
 
