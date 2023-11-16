@@ -10,6 +10,24 @@ const Modelccc = () => {
   const modelCstoredData = JSON.parse(localStorage.getItem('modelCData'));
   const { predicted_volatilities, explanations, optimal_weights, risk_contributions } = modelCstoredData;
   
+
+  const generateColors = (count) => {
+    const colors = [];
+    for (let i = 0; i < count; i++) {
+      colors.push(getRandomColor());
+    }
+    return colors;
+  };
+
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+  
   console.log('ModelC에서 localStorage에서 가져온 데이터:', modelCstoredData);
   // 데이터 가공
   const optimalWeightsData = {
@@ -17,8 +35,8 @@ const Modelccc = () => {
     datasets: [
       {
         data: modelCstoredData.data.optimal_weights,
-        backgroundColor: ['#FF6384', '#36A2EB'], 
-        hoverBackgroundColor: ['#FF6384', '#36A2EB'],
+        backgroundColor: generateColors(modelCstoredData.data.stocks.length), 
+        hoverBackgroundColor: generateColors(modelCstoredData.data.stocks.length),
       },
     ],
   };
