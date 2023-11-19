@@ -25,7 +25,7 @@ const Modela = () => {
       };
 
       // API 호출
-      const response = await fetch(`${serverUrl}${predictpriceEndpoint}`, {
+      const response = await fetch( serverUrl + "/api/predict/price", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
