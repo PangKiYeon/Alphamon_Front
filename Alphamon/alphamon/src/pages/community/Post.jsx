@@ -116,11 +116,11 @@ function Post() {
 }
 
 const Container = styled.div`
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 16px 0;
+  // border: 1px solid #ccc;
+  // padding: 16px;
+  // margin: 16px 0;
   color: #5F6368;
-  font-family: Roboto;
+  font-family: Roboto; 
   font-size: 14px;
 `;
 

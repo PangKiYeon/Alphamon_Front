@@ -15,14 +15,14 @@ function Modelb() {
     return null;
   }
 
-  const { negative_news_count, positive_news_count, negative_news_examples, positive_news_examples, prediction } = storedData;
+  const { negative_percentage, positive_percentage,  prediction_result } = storedData;
 
   // 그래프 데이터 설정
   const chartData = {
     labels: ['Negative News', 'Positive News'],
     datasets: [
       {
-        data: [negative_news_count, positive_news_count],
+        data: [storedData.data.negative_percentage, storedData.data.positive_percentage, , storedData.data.prediction_result],
         backgroundColor: ['#FF5733', '#33FF57'],
       },
     ],
@@ -32,14 +32,14 @@ function Modelb() {
     <>
       <Container>
         <Header />
-        <Text>Model b 결과 페이지</Text>
+        <Text></Text>
 
         {/* 원 그래프 */}
         <ChartContainer>
           <Doughnut data={chartData} />
         </ChartContainer>
 
-        {/* 부정적 뉴스 예시 */}
+        {/* 부정적 뉴스 예시
         <ResultContainer>
           <ResultText>Negative News Examples:</ResultText>
           <NewsList>
@@ -50,18 +50,18 @@ function Modelb() {
         </ResultContainer>
 
         {/* 긍정적 뉴스 예시 */}
-        <ResultContainer>
+        {/* <ResultContainer>
           <ResultText>Positive News Examples:</ResultText>
           <NewsList>
             {positive_news_examples.map((example, index) => (
               <li key={index}>{example}</li>
             ))}
           </NewsList>
-        </ResultContainer>
+        </ResultContainer> */}
 
         {/* 예측 결과 */}
         <ResultContainer>
-          <ResultText>Prediction: {prediction}</ResultText>
+          <ResultText>{storedData.data.prediction_result}</ResultText>
         </ResultContainer>
 
         <BottomMenu select={'두번째메뉴'} />
@@ -98,6 +98,11 @@ const ResultContainer = styled.div`
 const ResultText = styled.div`
   font-size: 16px;
   margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NewsList = styled.ul`
