@@ -7,6 +7,11 @@
 ## 👩🏼‍💻 팀원 소개
 <img width="798" alt="스크린샷 2024-09-10 오후 11 07 27" src="https://github.com/user-attachments/assets/f738e4b5-d375-49d1-b03b-a900a16b5cbd">
 
+## ⚙️ Frontend 개발환경
+- react
+- javascript
+- styled components
+
 ## 📌 프로젝트 소개
 
 <img width="1097" alt="스크린샷 2024-09-10 오후 10 59 38" src="https://github.com/user-attachments/assets/9f2d13dd-cf2a-43fa-972d-68333ccac571">
