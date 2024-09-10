@@ -12,6 +12,7 @@
 ## 📌 프로젝트 소개
 
 <img width="1097" alt="스크린샷 2024-09-10 오후 10 59 38" src="https://github.com/user-attachments/assets/9f2d13dd-cf2a-43fa-972d-68333ccac571">
+<img width="799" alt="스크린샷 2024-09-10 오후 11 05 20" src="https://github.com/user-attachments/assets/f5b3241b-4927-4e88-a176-89d7134eb005">
 <img width="1097" alt="스크린샷 2024-09-10 오후 10 59 43" src="https://github.com/user-attachments/assets/cbfaaa7d-c6fa-4f5a-a042-4345be5eb2dc">
 <img width="1097" alt="스크린샷 2024-09-10 오후 10 59 49" src="https://github.com/user-attachments/assets/0f390c56-a36e-4ef3-b37e-99e27c9af676">
 <img width="1097" alt="스크린샷 2024-09-10 오후 10 59 52" src="https://github.com/user-attachments/assets/e9e43af5-e480-46b5-9d69-6fea67365100">
@@ -22,11 +23,6 @@
 <img width="1097" alt="스크린샷 2024-09-10 오후 11 00 00" src="https://github.com/user-attachments/assets/0d4b3a05-5c39-43c4-a7e0-fa69c83af9bf">
 <img width="1097" alt="스크린샷 2024-09-10 오후 11 00 03" src="https://github.com/user-attachments/assets/d77b6b81-be23-4b2e-9d42-b8a522fc5ac3">
 <img width="1097" alt="스크린샷 2024-09-10 오후 11 00 05" src="https://github.com/user-attachments/assets/9aa82029-a778-4897-b0a5-0433b8558702">
-
-
-
-
-
 
 
 
