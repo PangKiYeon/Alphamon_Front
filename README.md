@@ -1,22 +1,15 @@
 # Alphamon
 2023 이브와 AI.SW 교육 금상 수상
 
-## 💻 프로젝트 소개
-AI 로보어드바이저를 활용한 금융 추천 서비스입니다.
-
 ## ⌛️ 개발기간
 2023.04 ~ 2023.12
-
-## 👩🏻‍💻 Frontend 팀 구성
-- 김민아
-- 방기연
 
 ## ⚙️ 개발환경
 - React
 - Styled Components
 - javascript
 
-## 📌 프로젝트 기능
+## 📌 프로젝트 소개
 
 <img width="1097" alt="스크린샷 2024-09-10 오후 11 00 00" src="https://github.com/user-attachments/assets/0d4b3a05-5c39-43c4-a7e0-fa69c83af9bf">
 ![스크린샷 2024-09-10 오후 10 59 17](https://github.com/user-attachments/assets/66680858-8261-45d0-b3b6-611dfbe4239a)
